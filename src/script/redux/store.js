@@ -2,8 +2,8 @@ import { createStore } from 'redux'
 
 
 
-let list=[(<div></div>)];
-function changer(state = {title:list}, action) {
+
+function changer(state = {title: "0"}, action) {
   switch (action.type) {
     case 'SETTITLE':
       return { title: action.title }

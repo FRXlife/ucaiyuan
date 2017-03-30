@@ -17,7 +17,7 @@ class Kind extends React.Component {
   render() {
     return (
       <div className="m-kind">
-        <header>分类</header>
+        
         <div id = "kindContent">
             <ul id = "kindNav">
                 <li><Link to="/kind/kind1"  activeClassName="active">热门推荐</Link></li>

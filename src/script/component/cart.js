@@ -14,9 +14,7 @@ class Cart extends React.Component {
   render() {
     return (
       <div className="m-cart">
-        <header>
-          购物车
-        </header>
+        
         <div className="cart-content">
           <i></i>
           <p>购物车还是空的</p>

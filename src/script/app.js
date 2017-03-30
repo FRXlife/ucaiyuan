@@ -45,12 +45,12 @@ import Set from './component/set'
 
 
 ReactDOM.render(
-
+  <Provider store={store}>
     <Router history={hashHistory}>
     	<Route path="/" component={Index}>
     		<IndexRedirect to="/home"></IndexRedirect>
-    		<Route path="home" component={Home}/>
-    		<Route path="kind"  component={Kind}>
+    		<Route path="home" title="0" component={Home}/>
+    		<Route path="kind" title="1"  component={Kind}>
             <IndexRoute component={Kind1}/>
               <Route path="kind1" component={Kind1}/>
               <Route path="kind2" component={Kind2}/>
@@ -61,14 +61,15 @@ ReactDOM.render(
               <Route path="kind7" component={Kind7}/>
               <Route path="kind8" component={Kind8}/>
         </Route>
-    		<Route path="cart"  component={Cart}/>
-    		<Route path="my" component={My}/>
+    		<Route path="cart" title="2"  component={Cart}/>
+    		<Route path="my" title="3" component={My}/>
     	</Route>
       
       <Route path="register" component={Register}/>
       <Route path="login" component={Login}/>
       <Route path="set" component={Set}/>
 
-    </Router>,
+    </Router>
+  </Provider>  ,
   document.getElementById('root')
 )

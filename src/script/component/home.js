@@ -21,7 +21,9 @@ class Home extends React.Component {
       typeList5:[],
       pin5:[],
       tv:[],
-      movie:[]
+      movie:[],
+      egg:[],
+      eggkind:[]
     }
   }
   componentWillMount () {
@@ -239,16 +241,58 @@ class Home extends React.Component {
           newtv.push(
               <div className="food">
               <h2>
-                <img className="pic" src={data.content[0].items[4].attributes.iconUrl}/>
-                <b>{data.content[0].items[4].attributes.title}</b>
+                <img className="pic" src={data.content[0].items[10].attributes.iconUrl}/>
+                <b>{data.content[0].items[10].attributes.title}</b>
                 <span className="right">
                   <i></i>
                 </span>
               </h2>
             </div>  
           )
-          let movie
+          let newmovie=[];
+          data.content[0].items[10].data.map(val=>{
+            newmovie.push(
+              <li className="moviePic">
+                <div className="image">
+                  <img src={val.previewSmall}/>
+                  <a className="foodName"></a>
+                </div>
+                <div className="video_info">
+                  <h4>{val.title}</h4>
 
+                </div>
+              </li>
+            )
+          })
+          
+          let newegg = [];
+          newegg.push(
+             <div className="food">
+              <h2>
+                <img className="pic" src={data.content[0].items[11].attributes.iconUrl}/>
+                <b>{data.content[0].items[11].attributes.title}</b>
+                <span className="right">
+                  <i></i>
+                </span>
+              </h2>
+            </div>  
+          )
+          let neweggkind = [];
+          for(let i=0;i<8;i++){
+            neweggkind.push(
+              <li>
+                <a><img src={data.content[0].items[11].data[i].image}/></a>
+                <h3>{data.content[0].items[11].data[i].title}</h3>
+                <div className="price_wrap">
+                  <span>
+                    <label className="money">￥</label>
+                    {data.content[0].items[11].data[i].price}
+                  </span>
+                </div>
+                <a className="btnshop"></a>
+              </li>
+            )
+          }
 
 
 
@@ -273,7 +317,11 @@ class Home extends React.Component {
             typeList4:kindfood4,
             pin4:pind,
             typeList5:kindfood5,
-            pin5:pine
+            pin5:pine,
+            tv:newtv,
+            movie:newmovie,
+            egg:newegg,
+            eggkind:neweggkind
           })
       })
       .catch(function (err) {
@@ -283,12 +331,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="m-home">
-        <header className="search_header">
-            <div className="search">
-              <i></i>
-              车厘子
-            </div>
-        </header>
+        
         <div className="swiper">
             <Carousel>
               {this.state.bannerlist}
@@ -351,6 +394,20 @@ class Home extends React.Component {
               {this.state.pin5}
             </ul>
           </Scroller>
+        </div>
+        <div className="demomovie">
+          {this.state.tv}
+          <Scroller scrollX={true}>
+            <ul>
+              {this.state.movie}
+            </ul>
+          </Scroller>
+        </div>
+        <div className="tese">
+          {this.state.egg}
+          <ul>
+            {this.state.eggkind}
+          </ul>
         </div>
       </div>
     )

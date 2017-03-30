@@ -2,12 +2,51 @@
   @include flexbox() ;
   @include flex-direction(column);
   height:100%;
- 
+
   section{
     flex:1;
     background:#eee;
     overflow-y:auto;
     margin-bottom:.5rem;
+      header{
+        &.search_header{
+          padding: .06rem 0;
+        .search{
+        margin: 0 .12rem;
+        background: #fff;
+        @include border-radius(.03rem);   
+          position: relative;
+          height: .32rem;
+          overflow: hidden;
+          line-height: .32rem;
+          font-size: .14rem;
+          color: gray;
+          padding-left: .32rem;
+          i{
+            position: absolute;
+            width: .16rem;
+            height: .16rem;
+            background: url(http://s1.ucaiyuan.com/h5/1.6.4/images/new/icon_section_title_3.png) center/100% 100% no-repeat;
+            -webkit-background-size: 100% 100%;
+            left: .08rem;
+            top: 50%;
+            margin-top: -.08rem;
+          }
+        }
+
+      }
+      &.kind_header,&.cart_header{
+      width:100%; 
+      height:.44rem;
+      background: #fff;
+      margin-bottom: .1rem;
+      color:#222;
+      text-align: center;
+      line-height: .44rem;
+      font-size:.16rem;
+    }
+      
+  }
   }
   footer{
     height:.5rem;
